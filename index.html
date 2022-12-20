@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ABV Calc</title>
+</head>
+<body>
+
+    <div class="container">
+        <form>
+            <div class="item-container">
+                <label for="abv">Current ABV: </label>
+                <div class="input-container">
+                    <input type="number" name="abv" id="abv" value="40">
+                    %
+                </div>
+            </div>
+            <div class="item-container">
+                <label for="target-abv">Target ABV: </label>
+                <div class="input-container">
+                    <input type="number" name="target-abv" id="target-abv"value="35">
+                    %
+                </div>
+            </div>
+            <div class="item-container">
+                <label for="curr-vol">Current volume: </label>
+                <div class="input-container">
+                    <input type="number" name="curr-vol" id="curr-vol" value="2">
+                    oz
+                </div>
+            </div>
+            <div class="btn-container">
+                <button type="submit">Calculate</button>
+            </div>
+        </form>
+        <div class="result-container">
+            <p>
+                Add 
+                <span class="result-oz">0.27oz</span>
+                /
+                <span class="result-ml">120ml</span>
+                of water
+            </p>
+        </div>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
