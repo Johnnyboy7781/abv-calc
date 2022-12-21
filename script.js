@@ -3,19 +3,28 @@ let targetAbvInputEl = document.querySelector("#target-abv");
 let currVolInputEl = document.querySelector("#curr-vol")
 let form = document.querySelector("form");
 let resultContainerEl = document.querySelector(".result-container");
-let errorEl = document.querySelector(".error");
+let valErrorEl = document.querySelector(".value-error");
+let inputErrorEl = document.querySelector(".input-error");
 
 const renderResult = (oz, ml) => {
-    errorEl.style.display = "none";
+    valErrorEl.style.display = "none";
+    inputErrorEl.style.display = "none";
     resultContainerEl.style.display = "block";
 
     document.querySelector(".result-oz").innerHTML = oz + "oz";
     document.querySelector(".result-ml").innerHTML = ml + "ml";
 }
 
-const handleError = () => {
+const handleValError = () => {
     resultContainerEl.style.display = "none";
-    errorEl.style.display = "block";
+    inputErrorEl.style.display = "none";
+    valErrorEl.style.display = "block";
+}
+
+const handleInputError = () => {
+    resultContainerEl.style.display = "none";
+    valErrorEl.style.display = "none";
+    inputErrorEl.style.display = "block";
 }
 
 const handleFormSubmit = e => {
@@ -25,8 +34,11 @@ const handleFormSubmit = e => {
     const targetAbv = parseFloat(targetAbvInputEl.value)
     const currVol = parseFloat(currVolInputEl.value)
 
-    if (currAbv < targetAbv) {
-        handleError();
+    if (currAbv <= 0 || targetAbv <= 0 || currVol <= 0) {
+        handleInputError();
+        return;
+    } else if (currAbv < targetAbv) {
+        handleValError();
         return;
     }
 

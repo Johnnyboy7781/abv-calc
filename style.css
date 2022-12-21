@@ -58,13 +58,13 @@ button:hover {
     justify-content: center;
 }
 
-.result-container, .error {
+.result-container, .value-error, .input-error {
     margin-top: 1rem;
     font-size: 1.2rem;
     text-align: center;
     display: none;
 }
 
-.error {
+.value-error, .input-error {
     color: rgb(147, 0, 0);
 }
